@@ -68,7 +68,7 @@ def _process_batch(
 
             output_ext = "png" if auto_alpha_format and pixmap.alpha else ext
 
-            output_filename = f"{img_prefix}_{page_idx + 1:04d}.{output_ext}"
+            output_filename = f"{img_prefix}{page_idx + 1:04d}.{output_ext}"
             output_path = output_dir / output_filename
 
             if output_ext.lower() in ["jpg", "jpeg"]:
@@ -116,7 +116,7 @@ def convert_pdf(
     pdf_path: Path,
     page_range: Optional[Tuple[int, int]] = None,
     output_dir: Path = IMG_PATH,
-    img_prefix: Optional[str] = None,
+    img_prefix: Optional[str] = "",
     dpi: int = MAX_RES,
     ext: str = "jpg",
     quality: int = MAX_QUAL,
